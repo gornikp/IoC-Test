@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraceResolver", "GraceResol
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightInjectResolver", "LightInjectResolver\LightInjectResolver.csproj", "{B1D44F25-7345-4A36-86AA-C81BA08A1A8D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HaveBoxResolver", "HaveBoxResolver\HaveBoxResolver.csproj", "{3C810CF0-D37B-461B-B750-3E704B3ADCD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoResolver", "NoResolver\NoResolver.csproj", "{C701437F-58BB-4044-92D6-F583EAD3038B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +75,22 @@ Global
 		{B1D44F25-7345-4A36-86AA-C81BA08A1A8D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B1D44F25-7345-4A36-86AA-C81BA08A1A8D}.Release|x86.ActiveCfg = Release|Any CPU
 		{B1D44F25-7345-4A36-86AA-C81BA08A1A8D}.Release|x86.Build.0 = Release|Any CPU
+		{3C810CF0-D37B-461B-B750-3E704B3ADCD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C810CF0-D37B-461B-B750-3E704B3ADCD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C810CF0-D37B-461B-B750-3E704B3ADCD7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3C810CF0-D37B-461B-B750-3E704B3ADCD7}.Debug|x86.Build.0 = Debug|Any CPU
+		{3C810CF0-D37B-461B-B750-3E704B3ADCD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C810CF0-D37B-461B-B750-3E704B3ADCD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C810CF0-D37B-461B-B750-3E704B3ADCD7}.Release|x86.ActiveCfg = Release|Any CPU
+		{3C810CF0-D37B-461B-B750-3E704B3ADCD7}.Release|x86.Build.0 = Release|Any CPU
+		{C701437F-58BB-4044-92D6-F583EAD3038B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C701437F-58BB-4044-92D6-F583EAD3038B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C701437F-58BB-4044-92D6-F583EAD3038B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C701437F-58BB-4044-92D6-F583EAD3038B}.Debug|x86.Build.0 = Debug|Any CPU
+		{C701437F-58BB-4044-92D6-F583EAD3038B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C701437F-58BB-4044-92D6-F583EAD3038B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C701437F-58BB-4044-92D6-F583EAD3038B}.Release|x86.ActiveCfg = Release|Any CPU
+		{C701437F-58BB-4044-92D6-F583EAD3038B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
