@@ -19,7 +19,6 @@ namespace MyContainer
     {
         void Register<TResolvingType, TClass>();
         void Register<TResolvingType, TClass>(LifeStyleEnum lifeCycle);
-        TResolvingType Resolve<TResolvingType>();
         object Resolve(Type typeToResolve);
     }
 
@@ -42,11 +41,6 @@ namespace MyContainer
             container.Add(new ObjectInContainer(typeof(TResolvingType), typeof(TClass), LifeStyleEnum.IEnumerable) { ConstructorArguments = type } );
         }
 
-        public TResolvingType Resolve<TResolvingType>()
-        {
-            return (TResolvingType)ResolveObject(typeof(TResolvingType));
-        }
-
         public object Resolve(Type typeToResolve)
         {
             return ResolveObject(typeToResolve);
@@ -56,9 +50,9 @@ namespace MyContainer
         {
             var objectInContainer = container.FirstOrDefault(o => o.ResolvingType == typeToResolve);
             if (objectInContainer == null)
-            {
+                objectInContainer = container.FirstOrDefault(o => o.ResolvedClassType == typeToResolve);
+            if (objectInContainer == null)
                 throw new Exception(string.Format("Typu {0} nie ma w bazie zarejestrowanych serwisów", typeToResolve.Name));
-            }
             return GetInstance(objectInContainer);
         }
 
@@ -70,7 +64,6 @@ namespace MyContainer
 
                 Type elementType = objectInContainer.ResolvedClassType.GenericTypeArguments.First();
                 MethodInfo castMethod = typeof(Enumerable).GetMethod("Cast").MakeGenericMethod(new System.Type[] { elementType });
-                MethodInfo toArrayMethod = typeof(Enumerable).GetMethod("ToArray").MakeGenericMethod(new System.Type[] { elementType });
 
                 var castedObjectEnum = castMethod.Invoke(null, new object[] { parameters });
 

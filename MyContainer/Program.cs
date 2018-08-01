@@ -113,10 +113,10 @@ namespace MyContainer
 
         private void RegisterMultiple()
         {
-            container.Register<Multi1, Multi1>();
-            container.Register<Multi2, Multi2>();
-            container.Register<Multi3, Multi3>();
-            container.Register<Multi4, Multi4>();
+            container.Register<IMulti, Multi1>();
+            container.Register<IMulti, Multi2>();
+            container.Register<IMulti, Multi3>();
+            container.Register<IMulti, Multi4>();
             container.Register<IEnumerable<IMulti>, List<IMulti>>(new List<Type> { typeof(Multi1), typeof(Multi2), typeof(Multi3), typeof(Multi4) });
             container.Register<MultipleObject1, MultipleObject1>();
             container.Register<MultipleObject2, MultipleObject2>();
