@@ -8,6 +8,9 @@ using Dependency_Injection_Test_Interfaces.Simple;
 using Grace.DependencyInjection;
 using Grace.Dynamic;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace GraceResolver
 {
@@ -178,5 +181,5 @@ namespace GraceResolver
         }
 
         public object Resolve(Type type) => container.Locate(type);
-    }
+    }  
 }

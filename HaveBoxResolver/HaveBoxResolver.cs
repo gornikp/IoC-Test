@@ -40,8 +40,8 @@ namespace HaveBoxResolver
             benchmark.ClearGarbageCollector();
             benchmark.RunTest(new HaveBoxResolver(), benchmark.ComplexBenchmark);
 
-            benchmark.ClearGarbageCollector();
-            benchmark.RunTest(new HaveBoxResolver(), benchmark.InterceptorToBenchmark);
+            //benchmark.ClearGarbageCollector();
+            //benchmark.RunTest(new HaveBoxResolver(), benchmark.InterceptorToBenchmark);
 
             benchmark.ClearGarbageCollector();
             benchmark.RunTest(new HaveBoxResolver(), benchmark.GenericToBenchmark);
@@ -200,7 +200,6 @@ namespace HaveBoxResolver
     {
         public void Intercept(IInvocation invocation)
         {
-            // Perform logging here, e.g.:
             var args = string.Join(", ", invocation.Args.Select(x => (x ?? string.Empty).ToString()));
             Debug.WriteLine(string.Format("HaveBox: {0}({1})", invocation.Method.Name, args));
 
