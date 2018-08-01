@@ -23,35 +23,67 @@ namespace AutofacResolver
         {
             Benchmarker benchmark = new Benchmarker();
 
+            int numberOfThreads = 8;
+
             benchmark.ClearGarbageCollector();
             benchmark.RunTestResolve(new AutofacResolver(), benchmark.PrepareAndRegisterAndSimpleResolve);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTestResolve(new AutofacResolver(), benchmark.PrepareAndRegisterAndSimpleResolve, numberOfThreads);
 
             benchmark.ClearGarbageCollector();
             benchmark.RunTestResolve(new AutofacResolver(), benchmark.PrepareAndRegister);
 
             benchmark.ClearGarbageCollector();
+            benchmark.RunTestResolve(new AutofacResolver(), benchmark.PrepareAndRegister, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
             benchmark.RunTest(new AutofacResolver(), benchmark.SingletonBenchmark);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new AutofacResolver(), benchmark.SingletonBenchmark, numberOfThreads);
 
             benchmark.ClearGarbageCollector();
             benchmark.RunTest(new AutofacResolver(), benchmark.TransistentBenchmark);
 
             benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new AutofacResolver(), benchmark.TransistentBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
             benchmark.RunTest(new AutofacResolver(), benchmark.SimpleCombinedBenchmark);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new AutofacResolver(), benchmark.SimpleCombinedBenchmark, numberOfThreads);
 
             benchmark.ClearGarbageCollector();
             benchmark.RunTest(new AutofacResolver(), benchmark.ComplexBenchmark);
 
             benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new AutofacResolver(), benchmark.ComplexBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
             benchmark.RunTest(new AutofacResolver(), benchmark.InterceptorToBenchmark);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new AutofacResolver(), benchmark.InterceptorToBenchmark, numberOfThreads);
 
             benchmark.ClearGarbageCollector();
             benchmark.RunTest(new AutofacResolver(), benchmark.GenericToBenchmark);
 
             benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new AutofacResolver(), benchmark.GenericToBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
             benchmark.RunTest(new AutofacResolver(), benchmark.PropertyToBenchmark);
 
             benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new AutofacResolver(), benchmark.PropertyToBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
             benchmark.RunTest(new AutofacResolver(), benchmark.MultipleBenchmark);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new AutofacResolver(), benchmark.MultipleBenchmark, numberOfThreads);
 
             Console.ReadLine();
         }
@@ -199,11 +231,7 @@ namespace AutofacResolver
 
         public void Dispose()
         {
-            
-            if (this.container == null) return;
-
-            this.container.Dispose();
-            this.container = null;
+           
         }
     }
 

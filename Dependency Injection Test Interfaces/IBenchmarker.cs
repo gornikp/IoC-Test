@@ -46,6 +46,60 @@ namespace Dependency_Injection_Test_Interfaces
             Console.WriteLine(actionToBenchmark.Method.Name + ": " + sw.ElapsedMilliseconds);
         }
 
+
+        public void RunTestResolve(IContainerAdapter container, Action<IContainerAdapter> actionToBenchmark, int numberOfThreads)
+        {
+            Stopwatch sw = new Stopwatch();
+            var count = 2000 / numberOfThreads;
+            Warmup(container);
+            actionToBenchmark(container); // Run once to prepare method
+            var threads = new List<Thread>();
+            for (int i = 0; i < numberOfThreads; i++)
+            {
+                threads.Add(new Thread(() =>
+                {
+                    for (var j = 0; j < count; j++)
+                    {
+                        actionToBenchmark(container);
+                    }
+                }));
+            }
+
+            sw.Start();
+            threads.ForEach(t => t.Start());
+            threads.ForEach(t => t.Join());
+            sw.Stop();
+
+            Console.WriteLine(actionToBenchmark.Method.Name + " using " + numberOfThreads + " threads: " + sw.ElapsedMilliseconds);
+        }
+
+        public void RunTest(IContainerAdapter container, Action<IContainerAdapter> actionToBenchmark, int numberOfThreads)
+        {
+            Stopwatch sw = new Stopwatch();
+            Warmup2(container);
+
+            var count = 50000 / numberOfThreads;
+            actionToBenchmark(container); // Run once to prepare method
+            var threads = new List<Thread>();
+            for (int i = 0; i < numberOfThreads; i++)
+            {
+                threads.Add(new Thread(() =>
+                {
+                    for (var j = 0; j < count; j++)
+                    {
+                        actionToBenchmark(container);
+                    }
+                }));
+            }
+
+            sw.Start();
+            threads.ForEach(t => t.Start());
+            threads.ForEach(t => t.Join());
+            sw.Stop();
+
+            Console.WriteLine(actionToBenchmark.Method.Name + " using " + numberOfThreads + " threads: " + sw.ElapsedMilliseconds);
+        }
+
         public void RunTest(IContainerAdapter container, Action<IContainerAdapter> actionToBenchmark)
         {
             Stopwatch sw = new Stopwatch();
