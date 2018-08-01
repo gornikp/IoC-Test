@@ -22,35 +22,56 @@ namespace HaveBoxResolver
         {
             Benchmarker benchmark = new Benchmarker();
 
+            int numberOfThreads = 4;
+
             benchmark.ClearGarbageCollector();
             benchmark.RunTestResolve(new HaveBoxResolver(), benchmark.PrepareAndRegisterAndSimpleResolve);
 
             benchmark.ClearGarbageCollector();
             benchmark.RunTestResolve(new HaveBoxResolver(), benchmark.PrepareAndRegister);
 
+
             benchmark.ClearGarbageCollector();
             benchmark.RunTest(new HaveBoxResolver(), benchmark.SingletonBenchmark);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new HaveBoxResolver(), benchmark.SingletonBenchmark, numberOfThreads);
 
             benchmark.ClearGarbageCollector();
             benchmark.RunTest(new HaveBoxResolver(), benchmark.TransistentBenchmark);
 
             benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new HaveBoxResolver(), benchmark.TransistentBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
             benchmark.RunTest(new HaveBoxResolver(), benchmark.SimpleCombinedBenchmark);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new HaveBoxResolver(), benchmark.SimpleCombinedBenchmark, numberOfThreads);
 
             benchmark.ClearGarbageCollector();
             benchmark.RunTest(new HaveBoxResolver(), benchmark.ComplexBenchmark);
 
-            //benchmark.ClearGarbageCollector();
-            //benchmark.RunTest(new HaveBoxResolver(), benchmark.InterceptorToBenchmark);
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new HaveBoxResolver(), benchmark.ComplexBenchmark, numberOfThreads);
 
             benchmark.ClearGarbageCollector();
             benchmark.RunTest(new HaveBoxResolver(), benchmark.GenericToBenchmark);
 
             benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new HaveBoxResolver(), benchmark.GenericToBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
             benchmark.RunTest(new HaveBoxResolver(), benchmark.PropertyToBenchmark);
 
             benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new HaveBoxResolver(), benchmark.PropertyToBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
             benchmark.RunTest(new HaveBoxResolver(), benchmark.MultipleBenchmark);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new HaveBoxResolver(), benchmark.MultipleBenchmark, numberOfThreads);
 
             Console.ReadLine();
         }

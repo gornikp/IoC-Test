@@ -29,13 +29,7 @@ namespace AutofacResolver
             benchmark.RunTestResolve(new AutofacResolver(), benchmark.PrepareAndRegisterAndSimpleResolve);
 
             benchmark.ClearGarbageCollector();
-            benchmark.RunTestResolve(new AutofacResolver(), benchmark.PrepareAndRegisterAndSimpleResolve, numberOfThreads);
-
-            benchmark.ClearGarbageCollector();
             benchmark.RunTestResolve(new AutofacResolver(), benchmark.PrepareAndRegister);
-
-            benchmark.ClearGarbageCollector();
-            benchmark.RunTestResolve(new AutofacResolver(), benchmark.PrepareAndRegister, numberOfThreads);
 
             benchmark.ClearGarbageCollector();
             benchmark.RunTest(new AutofacResolver(), benchmark.SingletonBenchmark);

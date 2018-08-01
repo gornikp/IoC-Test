@@ -17,6 +17,8 @@ namespace DrylocResolver
 
             Benchmarker benchmark = new Benchmarker();
 
+            int numberOfThreads = 8;
+
             benchmark.ClearGarbageCollector();
             benchmark.RunTestResolve(new DryIoCResolver(), benchmark.PrepareAndRegisterAndSimpleResolve);
 
@@ -27,22 +29,43 @@ namespace DrylocResolver
             benchmark.RunTest(new DryIoCResolver(), benchmark.SingletonBenchmark);
 
             benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new DryIoCResolver(), benchmark.SingletonBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
             benchmark.RunTest(new DryIoCResolver(), benchmark.TransistentBenchmark);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new DryIoCResolver(), benchmark.TransistentBenchmark, numberOfThreads);
 
             benchmark.ClearGarbageCollector();
             benchmark.RunTest(new DryIoCResolver(), benchmark.SimpleCombinedBenchmark);
 
             benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new DryIoCResolver(), benchmark.SimpleCombinedBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
             benchmark.RunTest(new DryIoCResolver(), benchmark.ComplexBenchmark);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new DryIoCResolver(), benchmark.ComplexBenchmark, numberOfThreads);
 
             benchmark.ClearGarbageCollector();
             benchmark.RunTest(new DryIoCResolver(), benchmark.GenericToBenchmark);
 
             benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new DryIoCResolver(), benchmark.GenericToBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
             benchmark.RunTest(new DryIoCResolver(), benchmark.PropertyToBenchmark);
 
             benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new DryIoCResolver(), benchmark.PropertyToBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
             benchmark.RunTest(new DryIoCResolver(), benchmark.MultipleBenchmark);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new DryIoCResolver(), benchmark.MultipleBenchmark, numberOfThreads);
 
             Console.ReadLine();
         }
@@ -148,10 +171,7 @@ namespace DrylocResolver
 
         public void Dispose()
         {
-            if (this.container != null)
-            {
-                this.container.Dispose();
-            }
+
         }
     }
 }

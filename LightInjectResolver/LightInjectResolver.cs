@@ -19,6 +19,8 @@ namespace LightInjectResolver
         {
             Benchmarker benchmark = new Benchmarker();
 
+            int numberOfThreads = 4;
+
             benchmark.ClearGarbageCollector();
             benchmark.RunTestResolve(new LightInjectResolver(), benchmark.PrepareAndRegisterAndSimpleResolve);
 
@@ -29,25 +31,43 @@ namespace LightInjectResolver
             benchmark.RunTest(new LightInjectResolver(), benchmark.SingletonBenchmark);
 
             benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new LightInjectResolver(), benchmark.SingletonBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
             benchmark.RunTest(new LightInjectResolver(), benchmark.TransistentBenchmark);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new LightInjectResolver(), benchmark.TransistentBenchmark, numberOfThreads);
 
             benchmark.ClearGarbageCollector();
             benchmark.RunTest(new LightInjectResolver(), benchmark.SimpleCombinedBenchmark);
 
             benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new LightInjectResolver(), benchmark.SimpleCombinedBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
             benchmark.RunTest(new LightInjectResolver(), benchmark.ComplexBenchmark);
 
-            //benchmark.ClearGarbageCollector();
-            //benchmark.RunTest(new LightInjectResolver(), benchmark.InterceptorToBenchmark);
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new LightInjectResolver(), benchmark.ComplexBenchmark, numberOfThreads);
 
             benchmark.ClearGarbageCollector();
             benchmark.RunTest(new LightInjectResolver(), benchmark.GenericToBenchmark);
 
             benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new LightInjectResolver(), benchmark.GenericToBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
             benchmark.RunTest(new LightInjectResolver(), benchmark.PropertyToBenchmark);
 
             benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new LightInjectResolver(), benchmark.PropertyToBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
             benchmark.RunTest(new LightInjectResolver(), benchmark.MultipleBenchmark);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new LightInjectResolver(), benchmark.MultipleBenchmark, numberOfThreads);
 
             Console.ReadLine();
         }
