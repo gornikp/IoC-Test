@@ -33,35 +33,60 @@ namespace MicroResolverResolver
             benchmark.RunTest(new MicroResolverResolver(), benchmark.SingletonBenchmark);
 
             benchmark.ClearGarbageCollector();
-            benchmark.RunTest(new MicroResolverResolver(), benchmark.SingletonBenchmark, numberOfThreads);
-
-            benchmark.ClearGarbageCollector();
             benchmark.RunTest(new MicroResolverResolver(), benchmark.TransistentBenchmark);
-
-            benchmark.ClearGarbageCollector();
-            benchmark.RunTest(new MicroResolverResolver(), benchmark.TransistentBenchmark, numberOfThreads);
 
             benchmark.ClearGarbageCollector();
             benchmark.RunTest(new MicroResolverResolver(), benchmark.SimpleCombinedBenchmark);
 
             benchmark.ClearGarbageCollector();
-            benchmark.RunTest(new MicroResolverResolver(), benchmark.SimpleCombinedBenchmark, numberOfThreads);
-
-            benchmark.ClearGarbageCollector();
             benchmark.RunTest(new MicroResolverResolver(), benchmark.ComplexBenchmark);
-
-            benchmark.ClearGarbageCollector();
-            benchmark.RunTest(new MicroResolverResolver(), benchmark.ComplexBenchmark, numberOfThreads);
 
             benchmark.ClearGarbageCollector();
             benchmark.RunTest(new MicroResolverResolver(), benchmark.PropertyToBenchmark);
 
             benchmark.ClearGarbageCollector();
-            benchmark.RunTest(new MicroResolverResolver(), benchmark.PropertyToBenchmark, numberOfThreads);
-
-            benchmark.ClearGarbageCollector();
             benchmark.RunTest(new MicroResolverResolver(), benchmark.MultipleBenchmark);
 
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new MicroResolverResolver(), benchmark.SingletonBenchmark, numberOfThreads);
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new MicroResolverResolver(), benchmark.TransistentBenchmark, numberOfThreads);
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new MicroResolverResolver(), benchmark.SimpleCombinedBenchmark, numberOfThreads);
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new MicroResolverResolver(), benchmark.ComplexBenchmark, numberOfThreads);
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new MicroResolverResolver(), benchmark.PropertyToBenchmark, numberOfThreads);
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new MicroResolverResolver(), benchmark.MultipleBenchmark, numberOfThreads);
+
+            numberOfThreads = 4;
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new MicroResolverResolver(), benchmark.SingletonBenchmark, numberOfThreads);
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new MicroResolverResolver(), benchmark.TransistentBenchmark, numberOfThreads);
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new MicroResolverResolver(), benchmark.SimpleCombinedBenchmark, numberOfThreads);
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new MicroResolverResolver(), benchmark.ComplexBenchmark, numberOfThreads);
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new MicroResolverResolver(), benchmark.PropertyToBenchmark, numberOfThreads);
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new MicroResolverResolver(), benchmark.MultipleBenchmark, numberOfThreads);
+
+            numberOfThreads = 8;
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new MicroResolverResolver(), benchmark.SingletonBenchmark, numberOfThreads);
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new MicroResolverResolver(), benchmark.TransistentBenchmark, numberOfThreads);
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new MicroResolverResolver(), benchmark.SimpleCombinedBenchmark, numberOfThreads);
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new MicroResolverResolver(), benchmark.ComplexBenchmark, numberOfThreads);
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new MicroResolverResolver(), benchmark.PropertyToBenchmark, numberOfThreads);
             benchmark.ClearGarbageCollector();
             benchmark.RunTest(new MicroResolverResolver(), benchmark.MultipleBenchmark, numberOfThreads);
 

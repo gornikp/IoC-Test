@@ -48,6 +48,75 @@ namespace GraceResolver
             benchmark.ClearGarbageCollector();
             benchmark.RunTest(new GraceResolver(), benchmark.MultipleBenchmark);
 
+            int numberOfThreads = 2;
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new GraceResolver(), benchmark.SingletonBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new GraceResolver(), benchmark.TransistentBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new GraceResolver(), benchmark.SimpleCombinedBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new GraceResolver(), benchmark.ComplexBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new GraceResolver(), benchmark.GenericToBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new GraceResolver(), benchmark.PropertyToBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new GraceResolver(), benchmark.MultipleBenchmark, numberOfThreads);
+
+            numberOfThreads = 4;
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new GraceResolver(), benchmark.SingletonBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new GraceResolver(), benchmark.TransistentBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new GraceResolver(), benchmark.SimpleCombinedBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new GraceResolver(), benchmark.ComplexBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new GraceResolver(), benchmark.GenericToBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new GraceResolver(), benchmark.PropertyToBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new GraceResolver(), benchmark.MultipleBenchmark, numberOfThreads);
+
+            numberOfThreads = 8;
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new GraceResolver(), benchmark.SingletonBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new GraceResolver(), benchmark.TransistentBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new GraceResolver(), benchmark.SimpleCombinedBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new GraceResolver(), benchmark.ComplexBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new GraceResolver(), benchmark.GenericToBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new GraceResolver(), benchmark.PropertyToBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new GraceResolver(), benchmark.MultipleBenchmark, numberOfThreads);
+
             Console.ReadLine();
         }
     }

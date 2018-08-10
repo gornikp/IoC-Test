@@ -78,7 +78,7 @@ namespace Dependency_Injection_Test_Interfaces
             Stopwatch sw = new Stopwatch();
             Warmup2(container);
 
-            var count = 50000 / numberOfThreads;
+            var count = 500000 / numberOfThreads;
             actionToBenchmark(container); // Run once to prepare method
             var threads = new List<Thread>();
             for (int i = 0; i < numberOfThreads; i++)
@@ -107,7 +107,7 @@ namespace Dependency_Injection_Test_Interfaces
             actionToBenchmark(container); // Run once to prepare method
             sw.Start();
 
-            for (var i = 0; i < 50000; i++)
+            for (var i = 0; i < 500000; i++)
             {
                 actionToBenchmark(container);
             }

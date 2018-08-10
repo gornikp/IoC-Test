@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="NoResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="test.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

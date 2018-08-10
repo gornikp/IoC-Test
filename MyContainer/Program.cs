@@ -19,7 +19,7 @@ namespace MyContainer
         {
             Benchmarker benchmark = new Benchmarker();
 
-            int numberOfThreads = 4;
+            int numberOfThreads = 2;
 
             benchmark.ClearGarbageCollector();
             benchmark.RunTestResolve(new PGIoCResolver(), benchmark.PrepareAndRegisterAndSimpleResolve);
@@ -31,28 +31,64 @@ namespace MyContainer
             benchmark.RunTest(new PGIoCResolver(), benchmark.SingletonBenchmark);
 
             benchmark.ClearGarbageCollector();
-            benchmark.RunTest(new PGIoCResolver(), benchmark.SingletonBenchmark, numberOfThreads);
-
-            benchmark.ClearGarbageCollector();
             benchmark.RunTest(new PGIoCResolver(), benchmark.TransistentBenchmark);
 
-            benchmark.ClearGarbageCollector();
-            benchmark.RunTest(new PGIoCResolver(), benchmark.TransistentBenchmark, numberOfThreads);
 
             benchmark.ClearGarbageCollector();
             benchmark.RunTest(new PGIoCResolver(), benchmark.SimpleCombinedBenchmark);
 
             benchmark.ClearGarbageCollector();
-            benchmark.RunTest(new PGIoCResolver(), benchmark.SimpleCombinedBenchmark, numberOfThreads);
+            benchmark.RunTest(new PGIoCResolver(), benchmark.ComplexBenchmark);
 
             benchmark.ClearGarbageCollector();
-            benchmark.RunTest(new PGIoCResolver(), benchmark.ComplexBenchmark);
+            benchmark.RunTest(new PGIoCResolver(), benchmark.MultipleBenchmark);
+
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new PGIoCResolver(), benchmark.SingletonBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new PGIoCResolver(), benchmark.TransistentBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new PGIoCResolver(), benchmark.SimpleCombinedBenchmark, numberOfThreads);
 
             benchmark.ClearGarbageCollector();
             benchmark.RunTest(new PGIoCResolver(), benchmark.ComplexBenchmark, numberOfThreads);
 
             benchmark.ClearGarbageCollector();
-            benchmark.RunTest(new PGIoCResolver(), benchmark.MultipleBenchmark);
+            benchmark.RunTest(new PGIoCResolver(), benchmark.MultipleBenchmark, numberOfThreads);
+
+            numberOfThreads = 4;
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new PGIoCResolver(), benchmark.SingletonBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new PGIoCResolver(), benchmark.TransistentBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new PGIoCResolver(), benchmark.SimpleCombinedBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new PGIoCResolver(), benchmark.ComplexBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new PGIoCResolver(), benchmark.MultipleBenchmark, numberOfThreads);
+
+            numberOfThreads = 8;
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new PGIoCResolver(), benchmark.SingletonBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new PGIoCResolver(), benchmark.TransistentBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new PGIoCResolver(), benchmark.SimpleCombinedBenchmark, numberOfThreads);
+
+            benchmark.ClearGarbageCollector();
+            benchmark.RunTest(new PGIoCResolver(), benchmark.ComplexBenchmark, numberOfThreads);
 
             benchmark.ClearGarbageCollector();
             benchmark.RunTest(new PGIoCResolver(), benchmark.MultipleBenchmark, numberOfThreads);
