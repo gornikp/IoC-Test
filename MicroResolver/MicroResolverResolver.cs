@@ -24,10 +24,10 @@ namespace MicroResolverResolver
             Benchmarker benchmark = new Benchmarker();
 
             benchmark.ClearGarbageCollector();
-            benchmark.RunTestResolve(new MicroResolverResolver(), benchmark.PrepareAndRegisterAndSimpleResolve);
+            benchmark.RunTestResolve(new MicroResolverResolver(), benchmark.PrepareAndRegister);
 
             benchmark.ClearGarbageCollector();
-            benchmark.RunTestResolve(new MicroResolverResolver(), benchmark.PrepareAndRegister);
+            benchmark.RunTestResolve(new MicroResolverResolver(), benchmark.PrepareAndRegisterAndSimpleResolve);
 
             benchmark.ClearGarbageCollector();
             benchmark.RunTest(new MicroResolverResolver(), benchmark.SingletonBenchmark);

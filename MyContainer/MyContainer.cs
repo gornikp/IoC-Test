@@ -12,13 +12,19 @@ namespace MyContainer
     {
         Singleton = 0,
         Transient = 1,
-        IEnumerable = 2
+    }
+
+    public enum ObjectTypeEnum
+    {
+        Default = 0,
+        IEnumerable = 1
     }
 
     public interface IContainer
     {
         void Register<TResolvingType, TClass>();
         void Register<TResolvingType, TClass>(LifeStyleEnum lifeCycle);
+        void Register<TResolvingType, TClass>(IEnumerable<Type> type);
         object Resolve(Type typeToResolve);
     }
 
@@ -36,9 +42,9 @@ namespace MyContainer
             container.Add(new ObjectInContainer(typeof(TResolvingType), typeof(TClass), lifeCycle));
         }
 
-        internal void Register<TResolvingType, TClass>(IEnumerable<Type> type)
+        public void Register<TResolvingType, TClass>(IEnumerable<Type> type)
         {
-            container.Add(new ObjectInContainer(typeof(TResolvingType), typeof(TClass), LifeStyleEnum.IEnumerable) { ConstructorArguments = type } );
+            container.Add(new ObjectInContainer(typeof(TResolvingType), typeof(TClass), LifeStyleEnum.Transient, ObjectTypeEnum.IEnumerable) { ConstructorArguments = type } );
         }
 
         public object Resolve(Type typeToResolve)
@@ -58,7 +64,7 @@ namespace MyContainer
 
         private object GetInstance(ObjectInContainer objectInContainer)
         {
-            if (objectInContainer.LifeCycle == LifeStyleEnum.IEnumerable)
+            if (objectInContainer.ObjectType == ObjectTypeEnum.IEnumerable)
             {
                 var parameters = ResolveConstructorParametersFoIEnumerable(objectInContainer);
 
@@ -98,11 +104,12 @@ namespace MyContainer
 
     public class ObjectInContainer
     {
-        public ObjectInContainer(Type resolvingType, Type resolvedClassType, LifeStyleEnum lifeCycleEnum)
+        public ObjectInContainer(Type resolvingType, Type resolvedClassType, LifeStyleEnum lifeCycleEnum, ObjectTypeEnum objectType = ObjectTypeEnum.Default)
         {
             ResolvingType = resolvingType;
             ResolvedClassType = resolvedClassType;
             LifeCycle = lifeCycleEnum;
+            ObjectType = objectType;
         }
 
         public Type ResolvingType { get; private set; }
@@ -112,11 +119,12 @@ namespace MyContainer
         public object ClassInstance { get; private set; }
 
         public LifeStyleEnum LifeCycle { get; private set; }
+        public ObjectTypeEnum ObjectType { get; }
         public IEnumerable<Type> ConstructorArguments { get; internal set; }
 
         public void CreateInstance(params object[] args)
         {
-            this.ClassInstance = Activator.CreateInstance(this.ResolvedClassType, args);
+            ClassInstance = Activator.CreateInstance(ResolvedClassType, args);
         }
     }
 }
